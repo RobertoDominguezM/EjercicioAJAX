@@ -12,16 +12,13 @@ window.onload = () => {
  */
 function realizarPeticionesAjax() {
     let request = new XMLHttpRequest();
-    console.log(request.readyState);
     //Indicamos  la función que se va a ejecutar cada vez que 
     //cambie el estado de la petición
     request.onreadystatechange = accionEstado;
     //Se establece la comunicación con el servidor
     request.open("GET", "https://jsonplaceholder.typicode.com/users", true);
-    console.log(request.readyState);
     //Por último se envía la petición
     request.send();
-    console.log(request.readyState);
 
     /*
     Si se tratara de una petición POST, podría ser como sigue:
@@ -42,10 +39,15 @@ function realizarPeticionesAjax() {
  */
 function accionEstado() {
     if (this.readyState == 4 && this.status == 200) {
-        console.log(this.readyState);
         //Cuando ya se ha procesado la petición, el servidor ha devuelto los datos pedidos
         //y el resultado de la petición es OK (200), realizamos los cambios pertinentes
         let parrafo = document.getElementById("parrafo1");
-        parrafo.innerHTML = this.responseText;
+        parrafo.innerHTML = this.responseText; 
+        var cambiarJSON = JSON.parse(this.responseText);
+        console.log(cambiarJSON);
+        for(i=0; i<cambiarJSON.length; i++){
+            
+        }
     }
+    console.log(this.readyState);
 }
