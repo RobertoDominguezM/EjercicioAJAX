@@ -46,7 +46,7 @@ function accionEstado() {
         var cambiarJSON = JSON.parse(this.responseText);
         console.log(cambiarJSON);
         for(i=0; i<cambiarJSON.length; i++){
-            
+            parrafo.innerHTML += "<p>" + cambiarJSON[i].name + ", " + cambiarJSON[i].email + "</p>";
         }
     }
     console.log(this.readyState);

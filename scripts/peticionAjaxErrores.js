@@ -6,6 +6,16 @@ function realizarPeticionesAjaxErrores() {
     request.send();
 }
 
+function crearNuevaPeticion(){
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = guardarNuevaPeticion;
+    request.open("GET", "https://jsonplaceholder.typicode.com/uses", true);
+    request.send();
+}
+
+function guardarNuevaPeticion(){
+    
+}
 function muestraError(status) {
     alert("Se ha producido un error: " + status);
 }
